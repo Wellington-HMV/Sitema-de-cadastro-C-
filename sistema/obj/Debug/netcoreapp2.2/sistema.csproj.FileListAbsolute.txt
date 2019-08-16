@@ -33,3 +33,8 @@ C:\Users\wellington.vitorino\Documents\Sistema_entregar\sistema\sistema\obj\Debu
 C:\Users\wellington.vitorino\Documents\Sistema_entregar\sistema\sistema\obj\Debug\netcoreapp2.2\Razor\Views\Pedidoes\Details.g.cshtml.cs
 C:\Users\wellington.vitorino\Documents\Sistema_entregar\sistema\sistema\obj\Debug\netcoreapp2.2\Razor\Views\Pedidoes\Edit.g.cshtml.cs
 C:\Users\wellington.vitorino\Documents\Sistema_entregar\sistema\sistema\obj\Debug\netcoreapp2.2\Razor\Views\Pedidoes\Index.g.cshtml.cs
+C:\Users\wellington.vitorino\Documents\Sistema_entregar\sistema\sistema\obj\Debug\netcoreapp2.2\Razor\Views\Clientes\Create.g.cshtml.cs
+C:\Users\wellington.vitorino\Documents\Sistema_entregar\sistema\sistema\obj\Debug\netcoreapp2.2\Razor\Views\Clientes\Delete.g.cshtml.cs
+C:\Users\wellington.vitorino\Documents\Sistema_entregar\sistema\sistema\obj\Debug\netcoreapp2.2\Razor\Views\Clientes\Details.g.cshtml.cs
+C:\Users\wellington.vitorino\Documents\Sistema_entregar\sistema\sistema\obj\Debug\netcoreapp2.2\Razor\Views\Clientes\Edit.g.cshtml.cs
+C:\Users\wellington.vitorino\Documents\Sistema_entregar\sistema\sistema\obj\Debug\netcoreapp2.2\Razor\Views\Clientes\Index.g.cshtml.cs

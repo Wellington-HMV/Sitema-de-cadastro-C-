@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.EntityFrameworkCore;
+using sistema.Models;
 
 namespace sistema.Models
 {
@@ -14,5 +15,6 @@ namespace sistema.Models
         }
 
         public DbSet<sistema.Models.Pedido> Pedido { get; set; }
+        public DbSet<sistema.Models.Cliente> Cliente { get; set; }
     }
 }

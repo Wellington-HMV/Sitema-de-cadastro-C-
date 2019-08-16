@@ -36,7 +36,7 @@ namespace sistema
 
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
 
-            var connection = @"Server=(localdb)\mssqllocaldb;Database=EFGetStarted.AspNetCore.NewDb;Trusted_Connection=True;ConnectRetryCount=0";
+            var connection = @"Data Source=PC-WELLINGVITOR;Initial Catalog=sistema-db;Persist Security Info=True;User ID=sa;Password=1234567";
             services.AddDbContext<sistemaContext>
                 (options => options.UseSqlServer(connection));
 

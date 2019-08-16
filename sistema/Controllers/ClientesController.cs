@@ -9,22 +9,22 @@ using sistema.Models;
 
 namespace sistema.Controllers
 {
-    public class PedidoesController : Controller
+    public class ClientesController : Controller
     {
         private readonly sistemaContext _context;
 
-        public PedidoesController(sistemaContext context)
+        public ClientesController(sistemaContext context)
         {
             _context = context;
         }
 
-        // GET: Pedidoes
+        // GET: Clientes
         public async Task<IActionResult> Index()
         {
-            return View(await _context.Pedido.ToListAsync());
+            return View(await _context.Cliente.ToListAsync());
         }
 
-        // GET: Pedidoes/Details/5
+        // GET: Clientes/Details/5
         public async Task<IActionResult> Details(int? id)
         {
             if (id == null)
@@ -32,39 +32,39 @@ namespace sistema.Controllers
                 return NotFound();
             }
 
-            var pedido = await _context.Pedido
+            var cliente = await _context.Cliente
                 .FirstOrDefaultAsync(m => m.Id == id);
-            if (pedido == null)
+            if (cliente == null)
             {
                 return NotFound();
             }
 
-            return View(pedido);
+            return View(cliente);
         }
 
-        // GET: Pedidoes/Create
+        // GET: Clientes/Create
         public IActionResult Create()
         {
             return View();
         }
 
-        // POST: Pedidoes/Create
+        // POST: Clientes/Create
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("Id,Cliente,NomeProduto,Quantidade")] Pedido pedido)
+        public async Task<IActionResult> Create([Bind("Id,Nome,Email,CPF")] Cliente cliente)
         {
             if (ModelState.IsValid)
             {
-                _context.Add(pedido);
+                _context.Add(cliente);
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
-            return View(pedido);
+            return View(cliente);
         }
 
-        // GET: Pedidoes/Edit/5
+        // GET: Clientes/Edit/5
         public async Task<IActionResult> Edit(int? id)
         {
             if (id == null)
@@ -72,22 +72,22 @@ namespace sistema.Controllers
                 return NotFound();
             }
 
-            var pedido = await _context.Pedido.FindAsync(id);
-            if (pedido == null)
+            var cliente = await _context.Cliente.FindAsync(id);
+            if (cliente == null)
             {
                 return NotFound();
             }
-            return View(pedido);
+            return View(cliente);
         }
 
-        // POST: Pedidoes/Edit/5
+        // POST: Clientes/Edit/5
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("Id,Cliente,NomeProduto,Quantidade")] Pedido pedido)
+        public async Task<IActionResult> Edit(int id, [Bind("Id,Nome,Email,CPF")] Cliente cliente)
         {
-            if (id != pedido.Id)
+            if (id != cliente.Id)
             {
                 return NotFound();
             }
@@ -96,12 +96,12 @@ namespace sistema.Controllers
             {
                 try
                 {
-                    _context.Update(pedido);
+                    _context.Update(cliente);
                     await _context.SaveChangesAsync();
                 }
                 catch (DbUpdateConcurrencyException)
                 {
-                    if (!PedidoExists(pedido.Id))
+                    if (!ClienteExists(cliente.Id))
                     {
                         return NotFound();
                     }
@@ -112,10 +112,10 @@ namespace sistema.Controllers
                 }
                 return RedirectToAction(nameof(Index));
             }
-            return View(pedido);
+            return View(cliente);
         }
 
-        // GET: Pedidoes/Delete/5
+        // GET: Clientes/Delete/5
         public async Task<IActionResult> Delete(int? id)
         {
             if (id == null)
@@ -123,30 +123,30 @@ namespace sistema.Controllers
                 return NotFound();
             }
 
-            var pedido = await _context.Pedido
+            var cliente = await _context.Cliente
                 .FirstOrDefaultAsync(m => m.Id == id);
-            if (pedido == null)
+            if (cliente == null)
             {
                 return NotFound();
             }
 
-            return View(pedido);
+            return View(cliente);
         }
 
-        // POST: Pedidoes/Delete/5
+        // POST: Clientes/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(int id)
         {
-            var pedido = await _context.Pedido.FindAsync(id);
-            _context.Pedido.Remove(pedido);
+            var cliente = await _context.Cliente.FindAsync(id);
+            _context.Cliente.Remove(cliente);
             await _context.SaveChangesAsync();
             return RedirectToAction(nameof(Index));
         }
 
-        private bool PedidoExists(int id)
+        private bool ClienteExists(int id)
         {
-            return _context.Pedido.Any(e => e.Id == id);
+            return _context.Cliente.Any(e => e.Id == id);
         }
     }
 }
