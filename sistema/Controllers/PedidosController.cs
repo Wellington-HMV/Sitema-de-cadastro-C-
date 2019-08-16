@@ -9,22 +9,23 @@ using sistema.Models;
 
 namespace sistema.Controllers
 {
-    public class PedidoesController : Controller
+    public class PedidosController : Controller
     {
         private readonly sistemaContext _context;
 
-        public PedidoesController(sistemaContext context)
+        public PedidosController(sistemaContext context)
         {
             _context = context;
         }
 
-        // GET: Pedidoes
+        // GET: Pedidos
         public async Task<IActionResult> Index()
         {
-            return View(await _context.Pedido.ToListAsync());
+            var sistemaContext = _context.Pedido.Include(p => p.Cliente);
+            return View(await sistemaContext.ToListAsync());
         }
 
-        // GET: Pedidoes/Details/5
+        // GET: Pedidos/Details/5
         public async Task<IActionResult> Details(int? id)
         {
             if (id == null)
@@ -33,6 +34,7 @@ namespace sistema.Controllers
             }
 
             var pedido = await _context.Pedido
+                .Include(p => p.Cliente)
                 .FirstOrDefaultAsync(m => m.Id == id);
             if (pedido == null)
             {
@@ -42,18 +44,19 @@ namespace sistema.Controllers
             return View(pedido);
         }
 
-        // GET: Pedidoes/Create
+        // GET: Pedidos/Create
         public IActionResult Create()
         {
+            ViewData["ClienteId"] = new SelectList(_context.Cliente, "Id", "Email");
             return View();
         }
 
-        // POST: Pedidoes/Create
+        // POST: Pedidos/Create
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("Id,Cliente,NomeProduto,Quantidade")] Pedido pedido)
+        public async Task<IActionResult> Create([Bind("Id,Preco,Quantidade,ClienteId")] Pedido pedido)
         {
             if (ModelState.IsValid)
             {
@@ -61,10 +64,11 @@ namespace sistema.Controllers
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
+            ViewData["ClienteId"] = new SelectList(_context.Cliente, "Id", "Email", pedido.ClienteId);
             return View(pedido);
         }
 
-        // GET: Pedidoes/Edit/5
+        // GET: Pedidos/Edit/5
         public async Task<IActionResult> Edit(int? id)
         {
             if (id == null)
@@ -77,15 +81,16 @@ namespace sistema.Controllers
             {
                 return NotFound();
             }
+            ViewData["ClienteId"] = new SelectList(_context.Cliente, "Id", "Email", pedido.ClienteId);
             return View(pedido);
         }
 
-        // POST: Pedidoes/Edit/5
+        // POST: Pedidos/Edit/5
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("Id,Cliente,NomeProduto,Quantidade")] Pedido pedido)
+        public async Task<IActionResult> Edit(int id, [Bind("Id,Preco,Quantidade,ClienteId")] Pedido pedido)
         {
             if (id != pedido.Id)
             {
@@ -112,10 +117,11 @@ namespace sistema.Controllers
                 }
                 return RedirectToAction(nameof(Index));
             }
+            ViewData["ClienteId"] = new SelectList(_context.Cliente, "Id", "Email", pedido.ClienteId);
             return View(pedido);
         }
 
-        // GET: Pedidoes/Delete/5
+        // GET: Pedidos/Delete/5
         public async Task<IActionResult> Delete(int? id)
         {
             if (id == null)
@@ -124,6 +130,7 @@ namespace sistema.Controllers
             }
 
             var pedido = await _context.Pedido
+                .Include(p => p.Cliente)
                 .FirstOrDefaultAsync(m => m.Id == id);
             if (pedido == null)
             {
@@ -133,7 +140,7 @@ namespace sistema.Controllers
             return View(pedido);
         }
 
-        // POST: Pedidoes/Delete/5
+        // POST: Pedidos/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(int id)

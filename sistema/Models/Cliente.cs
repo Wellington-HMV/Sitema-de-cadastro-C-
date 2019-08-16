@@ -46,7 +46,7 @@ namespace sistema.Models
         }
         public double Total()
         {
-            return Pedidos.Where(p => p.Preco > 0).Sum(p => p.Preco);
+            return Pedidos.Sum(p => p.Preco);
         }
     }
 }

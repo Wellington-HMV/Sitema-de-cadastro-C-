@@ -28,11 +28,11 @@ C:\Users\wellington.vitorino\Documents\Sistema_entregar\sistema\sistema\obj\Debu
 C:\Users\wellington.vitorino\Documents\Sistema_entregar\sistema\sistema\obj\Debug\netcoreapp2.2\sistema.dll
 C:\Users\wellington.vitorino\Documents\Sistema_entregar\sistema\sistema\obj\Debug\netcoreapp2.2\sistema.pdb
 C:\Users\wellington.vitorino\Documents\Sistema_entregar\sistema\sistema\obj\Debug\netcoreapp2.2\sistema.csproj.CopyComplete
-C:\Users\wellington.vitorino\Documents\Sistema_entregar\sistema\sistema\obj\Debug\netcoreapp2.2\Razor\Views\Pedidoes\Create.g.cshtml.cs
-C:\Users\wellington.vitorino\Documents\Sistema_entregar\sistema\sistema\obj\Debug\netcoreapp2.2\Razor\Views\Pedidoes\Delete.g.cshtml.cs
-C:\Users\wellington.vitorino\Documents\Sistema_entregar\sistema\sistema\obj\Debug\netcoreapp2.2\Razor\Views\Pedidoes\Details.g.cshtml.cs
-C:\Users\wellington.vitorino\Documents\Sistema_entregar\sistema\sistema\obj\Debug\netcoreapp2.2\Razor\Views\Pedidoes\Edit.g.cshtml.cs
-C:\Users\wellington.vitorino\Documents\Sistema_entregar\sistema\sistema\obj\Debug\netcoreapp2.2\Razor\Views\Pedidoes\Index.g.cshtml.cs
+C:\Users\wellington.vitorino\Documents\Sistema_entregar\sistema\sistema\obj\Debug\netcoreapp2.2\Razor\Views\Pedidos\Create.g.cshtml.cs
+C:\Users\wellington.vitorino\Documents\Sistema_entregar\sistema\sistema\obj\Debug\netcoreapp2.2\Razor\Views\Pedidos\Delete.g.cshtml.cs
+C:\Users\wellington.vitorino\Documents\Sistema_entregar\sistema\sistema\obj\Debug\netcoreapp2.2\Razor\Views\Pedidos\Details.g.cshtml.cs
+C:\Users\wellington.vitorino\Documents\Sistema_entregar\sistema\sistema\obj\Debug\netcoreapp2.2\Razor\Views\Pedidos\Edit.g.cshtml.cs
+C:\Users\wellington.vitorino\Documents\Sistema_entregar\sistema\sistema\obj\Debug\netcoreapp2.2\Razor\Views\Pedidos\Index.g.cshtml.cs
 C:\Users\wellington.vitorino\Documents\Sistema_entregar\sistema\sistema\obj\Debug\netcoreapp2.2\Razor\Views\Clientes\Create.g.cshtml.cs
 C:\Users\wellington.vitorino\Documents\Sistema_entregar\sistema\sistema\obj\Debug\netcoreapp2.2\Razor\Views\Clientes\Delete.g.cshtml.cs
 C:\Users\wellington.vitorino\Documents\Sistema_entregar\sistema\sistema\obj\Debug\netcoreapp2.2\Razor\Views\Clientes\Details.g.cshtml.cs

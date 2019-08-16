@@ -10,8 +10,8 @@ using sistema.Models;
 namespace sistema.Migrations
 {
     [DbContext(typeof(sistemaContext))]
-    [Migration("20190815182018_PrimeiraMigracao")]
-    partial class PrimeiraMigracao
+    [Migration("20190816175245_teste-01")]
+    partial class teste01
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -21,15 +21,43 @@ namespace sistema.Migrations
                 .HasAnnotation("Relational:MaxIdentifierLength", 128)
                 .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
+            modelBuilder.Entity("sistema.Models.Cliente", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnName("Id")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<double>("CPF");
+
+                    b.Property<string>("Email")
+                        .IsRequired();
+
+                    b.Property<string>("Nome")
+                        .IsRequired()
+                        .HasMaxLength(60);
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Cliente");
+                });
+
             modelBuilder.Entity("sistema.Models.Pedido", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
+                        .HasColumnName("Id")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<int>("ClienteId");
 
                     b.Property<double>("Preco");
 
+                    b.Property<int>("Quantidade");
+
                     b.HasKey("Id");
+
+                    b.HasIndex("ClienteId");
 
                     b.ToTable("Pedido");
                 });
@@ -38,19 +66,31 @@ namespace sistema.Migrations
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
+                        .HasColumnName("Id")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-                    b.Property<string>("Nome");
+                    b.Property<string>("Nome")
+                        .IsRequired();
 
                     b.Property<int?>("PedidoId");
 
                     b.Property<double>("Preco");
+
+                    b.Property<int>("Quantidade");
 
                     b.HasKey("Id");
 
                     b.HasIndex("PedidoId");
 
                     b.ToTable("Produto");
+                });
+
+            modelBuilder.Entity("sistema.Models.Pedido", b =>
+                {
+                    b.HasOne("sistema.Models.Cliente", "Cliente")
+                        .WithMany("Pedidos")
+                        .HasForeignKey("ClienteId")
+                        .OnDelete(DeleteBehavior.Cascade);
                 });
 
             modelBuilder.Entity("sistema.Models.Produto", b =>

@@ -17,12 +17,12 @@ namespace sistema.Models
         public int ClienteId { get; set; }
         public Cliente Cliente { get; set; }
 
-        public Pedido(int id, double preco, int quantidade, Cliente cliente)
+        public Pedido(int id, double preco, int quantidade /*Cliente cliente*/)
         {
             Id = id;
             Preco = preco;
             Quantidade = quantidade;
-            Cliente = cliente;
+            //Cliente = cliente;
             ClienteId = Cliente.Id;
         }
         public void AddProduto(Produto p)
@@ -33,7 +33,7 @@ namespace sistema.Models
         {
             Produtos.Remove(p);
         }
-        public void QuantidadeProduto(int ? qnt, Produto prod)//teste sendo void para testar se funciona chamar somento a função
+        public void QuantidadeProduto(int qnt, Produto prod)//teste sendo void para testar se funciona chamar somento a função
         {
            
         }
