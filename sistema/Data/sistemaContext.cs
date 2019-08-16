@@ -16,5 +16,6 @@ namespace sistema.Models
 
         public DbSet<sistema.Models.Pedido> Pedido { get; set; }
         public DbSet<sistema.Models.Cliente> Cliente { get; set; }
+        public DbSet<sistema.Models.Produto> Produto { get; set; }
     }
 }

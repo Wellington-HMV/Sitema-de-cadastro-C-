@@ -3,15 +3,17 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using sistema.Models;
 
 namespace sistema.Migrations
 {
     [DbContext(typeof(sistemaContext))]
-    partial class sistemaContextModelSnapshot : ModelSnapshot
+    [Migration("20190816182549_teste-02")]
+    partial class teste02
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -48,7 +50,9 @@ namespace sistema.Migrations
                         .HasColumnName("Id")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-                    b.Property<int>("ClienteId");
+                    b.Property<string>("ClienteId");
+
+                    b.Property<int?>("ClienteId1");
 
                     b.Property<double>("Preco");
 
@@ -56,7 +60,7 @@ namespace sistema.Migrations
 
                     b.HasKey("Id");
 
-                    b.HasIndex("ClienteId");
+                    b.HasIndex("ClienteId1");
 
                     b.ToTable("Pedido");
                 });
@@ -88,8 +92,7 @@ namespace sistema.Migrations
                 {
                     b.HasOne("sistema.Models.Cliente", "Cliente")
                         .WithMany("Pedidos")
-                        .HasForeignKey("ClienteId")
-                        .OnDelete(DeleteBehavior.Cascade);
+                        .HasForeignKey("ClienteId1");
                 });
 
             modelBuilder.Entity("sistema.Models.Produto", b =>

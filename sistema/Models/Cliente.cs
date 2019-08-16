@@ -23,6 +23,8 @@ namespace sistema.Models
         public string Email { get; set; }
 
         [Required(ErrorMessage ="Digite seu CPF")]
+        [MaxLength(11,ErrorMessage ="Deve conter {1} Caracteres")]
+        [MinLength(11, ErrorMessage = "Deve conter {1} Caracteres")]
         public double CPF { get; set; }
 
         public ICollection<Pedido> Pedidos { get; set; } = new List<Pedido>();

@@ -1,4 +1,5 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
 namespace sistema.Models
@@ -21,7 +22,9 @@ namespace sistema.Models
         [Range(0.0, 100.0, ErrorMessage ="Entre com o valor de {1} a {2}")]
         public int Quantidade { get; set; } = 0;
 
+        List<Produto> produtos = new List<Produto>();
 
+        public Produto() { }
         public Produto(int id, string nome, double preco, int quantidade)
         {
             Id = id;
@@ -29,5 +32,13 @@ namespace sistema.Models
             Preco = preco;
             Quantidade = quantidade;
         }
+        //public void AddProduto(Produto p)
+        //{
+        //    produtos.Add(p);
+        //}
+        //public void RemoveProduto(Produto p)
+        //{
+        //    produtos.Remove(p);
+        //}
     }
 }
